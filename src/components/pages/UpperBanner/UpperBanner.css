@@ -1,0 +1,23 @@
+.upper_content_banner {
+  margin-top: -110px;
+  margin-bottom: 50px;
+}
+
+.sub_title {
+  color: #47bdd7;
+  font-weight: 600;
+}
+
+.card_content {
+  padding: 20px 15px;
+  border: 0;
+  box-sizing: border-box;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 991px) {
+  .upper_content_banner {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}

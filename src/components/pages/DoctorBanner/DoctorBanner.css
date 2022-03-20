@@ -1,0 +1,41 @@
+.doctorBanner {
+  background-image: url(https://i.ibb.co/0F9qTcZ/banner-2-556707bd.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 530px;
+  margin: 15rem 0 5rem 0;
+}
+
+.img2 {
+  width: 75%;
+  margin-top: -138px;
+}
+
+.title_doctor {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 991px) {
+  .title_doctor {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .doctorBanner {
+    background-image: url(https://i.ibb.co/0F9qTcZ/banner-2-556707bd.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    margin: 4rem 0;
+    text-align: center;
+  }
+
+  .img2 {
+    width: 100%;
+    margin-top: -8px;
+  }
+}

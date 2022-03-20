@@ -1,0 +1,23 @@
+.gallery_row {
+  width: 85%;
+}
+
+.gallery {
+  margin: 50px 0;
+}
+
+.gallery_content {
+  width: 25%;
+}
+.img {
+  cursor: pointer;
+  transition: 0.5s;
+}
+.img:hover {
+  transform: scale(0.8);
+}
+@media only screen and (max-width: 991px) {
+  .gallery_content {
+    width: 85%;
+  }
+}

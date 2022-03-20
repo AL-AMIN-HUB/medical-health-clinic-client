@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import UpperBanner from "../../UpperBanner/UpperBanner";
 import "./Banner.css";
 
 const Banner = () => {
@@ -45,6 +46,7 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <UpperBanner />
     </div>
   );
 };

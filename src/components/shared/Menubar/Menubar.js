@@ -95,7 +95,7 @@ const Menubar = () => {
             </li>
             <li className="nav-item active">
               <NavLink to="/login" className="nav-link">
-                <i className="far fa-chart-bar">Login</i>
+                <i className="far fa-user fw-bold">Login</i>
               </NavLink>
             </li>
           </ul>
