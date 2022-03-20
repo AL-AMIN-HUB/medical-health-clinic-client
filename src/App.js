@@ -4,6 +4,7 @@ import Home from "./components/Home/Home";
 import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
 import ErrorRoute from "./components/pages/ErrorRoute/ErrorRoute";
+import Footer from "./components/pages/Footer/Footer";
 import Services from "./components/pages/Services/Services";
 import Login from "./components/shared/Login/Login";
 import Menubar from "./components/shared/Menubar/Menubar";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<ErrorRoute />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

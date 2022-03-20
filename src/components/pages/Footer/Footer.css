@@ -1,0 +1,15 @@
+.footer_bg {
+  background-image: url(https://i.ibb.co/z2kxmBC/footer-bg-9faa6d14.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+.link_social > .i {
+  background-color: #0e8eab;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+}

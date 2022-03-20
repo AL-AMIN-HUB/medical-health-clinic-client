@@ -45,13 +45,13 @@ const Menubar = () => {
 
   return (
     <div className="navbar-main">
-      <Nav className="navbar navbar-expand-lg navbar-mainbg container">
+      <Nav className="navbar  navbar-expand-lg navbar-mainbg container">
         <Link to="/" className="navbar-brand navbar-logo">
           <img className="img-fluid" style={{ height: "32px" }} src="https://i.ibb.co/9hrthm4/logo.png" alt="" />
         </Link>
 
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
