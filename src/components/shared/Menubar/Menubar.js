@@ -47,7 +47,7 @@ const Menubar = () => {
     <div className="navbar-main">
       <Nav className="navbar navbar-expand-lg navbar-mainbg container">
         <Link to="/" className="navbar-brand navbar-logo">
-          Web Solutions
+          <img className="img-fluid" style={{ height: "32px" }} src="https://i.ibb.co/9hrthm4/logo.png" alt="" />
         </Link>
 
         <button
@@ -84,13 +84,18 @@ const Menubar = () => {
               </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink to="/testimonial" className="nav-link">
-                <i className="far fa-chart-bar">Testimonial</i>
+              <NavLink to="/appointment" className="nav-link">
+                <i className="far fa-chart-bar">Appointment</i>
               </NavLink>
             </li>
             <li className="nav-item active">
               <NavLink to="/contact" className="nav-link">
                 <i className="far fa-copy">Contact Us</i>
+              </NavLink>
+            </li>
+            <li className="nav-item active">
+              <NavLink to="/login" className="nav-link">
+                <i className="far fa-chart-bar">Login</i>
               </NavLink>
             </li>
           </ul>
