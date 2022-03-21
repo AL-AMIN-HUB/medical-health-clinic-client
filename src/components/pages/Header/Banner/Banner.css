@@ -18,12 +18,19 @@
   font-size: 3rem;
 }
 
+.para {
+  display: block;
+}
+
 @media only screen and (max-width: 991px) {
   .carousel img {
     height: 75vh;
   }
   .carousel_content > h2 {
     font-size: 1.5rem;
+  }
+  .para {
+    display: none;
   }
 }
 

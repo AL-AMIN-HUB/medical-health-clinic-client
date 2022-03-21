@@ -94,8 +94,8 @@ const Menubar = () => {
               </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink to="/login" className="nav-link">
-                <i className="far fa-user fw-bold">Login</i>
+              <NavLink to="/register" className="nav-link">
+                <i className="far fa-user fw-bold">Sign up</i>
               </NavLink>
             </li>
           </ul>

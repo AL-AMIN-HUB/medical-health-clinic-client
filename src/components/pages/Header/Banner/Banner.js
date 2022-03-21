@@ -13,7 +13,7 @@ const Banner = () => {
             <h2 className="text-dark">
               With a Touch of <span style={{ color: "#ff005a" }}>Kindness</span>
             </h2>
-            <p className="text-dark">
+            <p className="text-dark para">
               Feugiat primis ligula risus auctor egestas augue mauri viverra tortor in iaculis and placerat purus feugiat primis ultrice in ligula
               impedit magna purus at pretium
             </p>
@@ -27,7 +27,7 @@ const Banner = () => {
             <h2 className="text-dark">
               <span style={{ color: "#ff005a" }}>Child Care</span> Treatments
             </h2>
-            <p className="text-dark">Quaerat sodales sapien undo euismod risus auctor egestas augue mauri viverra tortor sapien</p>
+            <p className="text-dark para">Quaerat sodales sapien undo euismod risus auctor egestas augue mauri viverra tortor sapien</p>
             <button className="button"> More About Clinic</button>
           </Carousel.Caption>
         </Carousel.Item>
@@ -38,7 +38,7 @@ const Banner = () => {
             <h2 className="text-dark">
               Newborn<span style={{ color: "#ff005a" }}> Care Services</span>
             </h2>
-            <p className="text-dark">
+            <p className="text-dark para">
               Luctus mauris orci auctor purus euismod pretium purus dolor impedit magna purus at pretium donec <br />
               Feugiat primis ultrice in ligula risus auctor tempus impedit
             </p>
