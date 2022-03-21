@@ -1,3 +1,18 @@
 .App {
   overflow: hidden;
 }
+
+.color_custom {
+  color: #0c91af;
+}
+
+.color_custom2 {
+  color: #ff005a;
+}
+
+.color_custom_bg {
+  background-color: #0c91af;
+}
+.color_custom_bg2 {
+  background-color: #ff005a;
+}

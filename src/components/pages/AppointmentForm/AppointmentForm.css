@@ -1,0 +1,43 @@
+.appointment_content {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.button2 {
+  background-color: #0c91af;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.button2:hover {
+  background-color: #025f74;
+  cursor: pointer;
+}
+
+.doctor_info {
+  line-height: 10px;
+}
+
+.working_time {
+  color: #fff;
+  padding: 4rem 2rem;
+  background-color: #00a3c8;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.working_time p {
+  color: rgba(240, 237, 237, 0.808);
+}
+
+.time_table {
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #fff;
+}
+.time_table_last {
+  margin-bottom: 0;
+  margin-top: 1rem;
+  border: none;
+}
