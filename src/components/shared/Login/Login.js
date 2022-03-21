@@ -11,13 +11,13 @@ const Login = () => {
       <div class="wrapper">
         <div class="logo">
           {" "}
-          <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="" />{" "}
+          <img src="http://www.simpleimageresizer.com/_uploads/photos/bd086ee3/download_80x80.png" alt="" />{" "}
         </div>
         <div class="text-center mt-4 name"> Sign In Account </div>
         <form onSubmit={handleSubmit} class="p-3 mt-3">
           <div class="form-field d-flex align-items-center">
             {" "}
-            <span class="far fa-user"></span> <input type="text" name="userName" id="userName" placeholder="Username" />{" "}
+            <span class="far fa-user"></span> <input type="email" name="email" id="userName" placeholder="Email" />{" "}
           </div>
           <div class="form-field d-flex align-items-center">
             {" "}

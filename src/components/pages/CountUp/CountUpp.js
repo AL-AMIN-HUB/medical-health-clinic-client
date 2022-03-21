@@ -11,7 +11,7 @@ const CountUpp = () => {
             <Card.Img className="img-fluid w-25 mx-auto d-block" variant="top" src="https://i.ibb.co/PFk59rm/Screenshot-1.png" />
             <Card.Body className="text-center">
               <Card.Title className="big_title">
-                <CountUp start={0} end={9632} duration={5} />
+                <CountUp start={0} end={5632} duration={5} />+
               </Card.Title>
               <Card.Text>Happy Patients</Card.Text>
             </Card.Body>
@@ -22,7 +22,7 @@ const CountUpp = () => {
             <Card.Img className="img-fluid w-25 mx-auto d-block" variant="top" src="https://i.ibb.co/stYpwRk/Screenshot-2.png" />
             <Card.Body className="text-center">
               <Card.Title className="big_title">
-                <CountUp start={0} end={178} duration={5} />
+                <CountUp start={0} end={178} duration={5} />+
               </Card.Title>
               <Card.Text>Qualified Doctors</Card.Text>
             </Card.Body>
@@ -33,7 +33,7 @@ const CountUpp = () => {
             <Card.Img className="img-fluid w-25 mx-auto d-block" variant="top" src="https://i.ibb.co/zGG2FB1/Screenshot-3.png" />
             <Card.Body className="text-center">
               <Card.Title className="big_title">
-                <CountUp start={0} end={864} duration={5} />
+                <CountUp start={0} end={899} duration={5} />+
               </Card.Title>
               <Card.Text>Clinic Rooms</Card.Text>
             </Card.Body>
@@ -44,7 +44,7 @@ const CountUpp = () => {
             <Card.Img className="img-fluid w-25 mx-auto d-block" variant="top" src="https://i.ibb.co/xstjf4r/Screenshot-4.png" />
             <Card.Body className="text-center">
               <Card.Title className="big_title">
-                <CountUp start={0} end={473} duration={5} />
+                <CountUp start={0} end={459} duration={5} />+
               </Card.Title>
               <Card.Text>Local Partners</Card.Text>
             </Card.Body>
