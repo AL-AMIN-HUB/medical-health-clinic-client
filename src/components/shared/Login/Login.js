@@ -11,7 +11,7 @@ const Login = () => {
       <div class="wrapper">
         <div class="logo">
           {" "}
-          <img src="http://www.simpleimageresizer.com/_uploads/photos/bd086ee3/download_80x80.png" alt="" />{" "}
+          <img src="https://i.ibb.co/Rgy9ysn/download-80x80.png" alt="" />{" "}
         </div>
         <div class="text-center mt-4 name"> Sign In Account </div>
         <form onSubmit={handleSubmit} class="p-3 mt-3">
