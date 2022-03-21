@@ -84,7 +84,7 @@ const Menubar = () => {
               </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink to="/appointment" className="nav-link">
+              <NavLink to="/appointmentForm" className="nav-link">
                 <i className="far fa-chart-bar">Appointment</i>
               </NavLink>
             </li>
