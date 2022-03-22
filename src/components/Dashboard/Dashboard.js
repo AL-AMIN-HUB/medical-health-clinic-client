@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
 // import useAuth from "../../Hooks/useAuth";
 
 const Dashboard = () => {
+  const { appointments, setAppointments } = useState([]);
   // const { logOut } = useAuth();
+
+  useEffect(() => {
+    fetch("https://medical-health-clinic.herokuapp.com/allAppointments")
+      .then((res) => res.json())
+      .then((data) => setAppointments(data));
+  }, [setAppointments]);
 
   useEffect(() => {
     const el = document.getElementById("wrapper");
@@ -118,33 +125,37 @@ const Dashboard = () => {
                         <th scope="col">Department</th>
                         <th scope="col">Patients</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
                         <th scope="col ">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>X-Ray Diagnostic</td>
-                        <td>Jonny</td>
-                        <td>alaminmrm@gmail.com</td>
-                        <td>$1200</td>
-                        <td>
-                          <select>
-                            <option value="pending">pending</option>
-                            <option value="pending">approved</option>
-                          </select>
-                        </td>
-                        <td>
-                          <button className="button2 border-0 mx-2 mb-1 py-1 px-2">
-                            <i className="fas fa-edit"></i>
-                          </button>
-                          <button className="button2 border-0 mx-2 mb-1 py-1 px-2">
-                            <i className="fas fa-trash"></i>
-                          </button>
-                        </td>
-                      </tr>
+                      {appointments.map((appointment, index) => (
+                        <tr key={appointment._id}>
+                          <th scope="row">{index}</th>
+                          <td>{appointment.department}</td>
+                          <td>{appointment.userName}</td>
+                          <td>{appointment.email}</td>
+                          <td>{appointment.phone}</td>
+                          <td>$ {appointment.price}</td>
+                          <td>
+                            <select>
+                              <option value="pending">pending</option>
+                              <option value="pending">approved</option>
+                            </select>
+                          </td>
+                          <td>
+                            <button className="button2 border-0 mx-2 mb-1 py-1 px-2">
+                              <i className="fas fa-edit"></i>
+                            </button>
+                            <button className="button2 border-0 mx-2 mb-1 py-1 px-2">
+                              <i className="fas fa-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

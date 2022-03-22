@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 
 const ServiceDetails = () => {
@@ -17,7 +18,46 @@ const ServiceDetails = () => {
       });
   }, [serviceId]);
 
+  const initialInfo = { userName: user.displayName, email: user.email, phone: "", desc: "", department: "" };
+  const [bookingInfo, setBookingInfo] = useState(initialInfo);
+
+  // handle on blur
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newInfo = { ...bookingInfo };
+    newInfo[field] = value;
+    // console.log(newInfo);
+    setBookingInfo(newInfo);
+  };
+
   const handleSubmit = (e) => {
+    // collect data
+    const appointment = {
+      ...bookingInfo,
+    };
+
+    // send to the server
+    fetch("https://medical-health-clinic.herokuapp.com/patientAppointments", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(appointment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your appointment has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+
     e.preventDefault();
     e.target.reset();
   };
@@ -46,10 +86,25 @@ const ServiceDetails = () => {
                 </small>
               </Card.Text>
               <form onSubmit={handleSubmit} action="#">
-                <input placeholder="Department" className="form-control my-2 py-2 px-3" type="text" name="department" defaultValue={service.name} />
-
-                <input placeholder="Appointment Date" className="form-control my-3 py-3 px-3" type="date" name="date" />
                 <input
+                  onBlur={handleOnBlur}
+                  placeholder="Department"
+                  className="form-control my-2 py-2 px-3"
+                  type="text"
+                  name="department"
+                  defaultValue={service.name}
+                />
+
+                <input
+                  onBlur={handleOnBlur}
+                  placeholder="Appointment Date"
+                  className="form-control my-3 py-3 px-3"
+                  required
+                  type="date"
+                  name="date"
+                />
+                <input
+                  onBlur={handleOnBlur}
                   placeholder="Enter Your Name*"
                   required
                   className="form-control my-3 py-3 px-3"
@@ -58,6 +113,7 @@ const ServiceDetails = () => {
                   defaultValue={user.displayName}
                 />
                 <input
+                  onBlur={handleOnBlur}
                   placeholder="Enter Your Email*"
                   required
                   className="form-control my-3 py-3 px-3"
@@ -65,8 +121,24 @@ const ServiceDetails = () => {
                   name="email"
                   defaultValue={user.email}
                 />
-                <input placeholder="Enter Your Phone Number*" required className="form-control my-3 py-3 px-3" type="number" name="phone" />
+                <input
+                  onBlur={handleOnBlur}
+                  placeholder="Price"
+                  className="form-control my-3 py-3 px-3"
+                  type="number"
+                  name="price"
+                  defaultValue={service.price}
+                />
+                <input
+                  onBlur={handleOnBlur}
+                  placeholder="Enter Your Phone Number*"
+                  required
+                  className="form-control my-3 py-3 px-3"
+                  type="number"
+                  name="phone"
+                />
                 <textarea
+                  onBlur={handleOnBlur}
                   rows="5"
                   placeholder="Tell us your problem here..."
                   required

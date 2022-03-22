@@ -14,9 +14,7 @@ const SingleService = (props) => {
           <Card.Text>{desc.slice(0, 100)}...</Card.Text>
         </Card.Body>
         <Link to={`/serviceDetails/${_id}`}>
-          <button onClick={() => console.log("Clicked")} className="button2 border-0 py-2 px-3 service_button">
-            View More Details
-          </button>
+          <button className="button2 border-0 py-2 px-3 service_button">View More Details</button>
         </Link>
       </Card>
     </Col>
