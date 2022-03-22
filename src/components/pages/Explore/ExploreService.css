@@ -1,0 +1,10 @@
+.explore_card {
+  cursor: pointer;
+  overflow: hidden;
+}
+.explore_img {
+  transition: 0.5s;
+}
+.explore_card:hover .explore_img {
+  transform: scale(1.1);
+}

@@ -3,8 +3,44 @@ import { Nav } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "./Menubar.css";
 import $ from "jquery";
+import useAuth from "../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Menubar = () => {
+  const { user, logOut } = useAuth();
+
+  const handleClick = () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success m-2",
+        cancelButton: "btn btn-danger m-2",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, Logout!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire("", "Logout successful");
+          logOut();
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire("Cancelled", "Your account is safe :)", "error");
+        }
+      });
+  };
+
   function animation() {
     const tabsNewAnim = $("#navbarSupportedContent");
     const activeItemNewAnim = tabsNewAnim.find(".active");
@@ -93,13 +129,33 @@ const Menubar = () => {
                 <i className="far fa-copy">Contact Us</i>
               </NavLink>
             </li>
-            <li className="nav-item active">
-              <NavLink to="/register" className="nav-link">
-                <i className="far fa-user fw-bold">Sign up</i>
-              </NavLink>
-            </li>
           </ul>
         </div>
+        {user?.email ? (
+          <>
+            {/* dashboard here  */}
+            <div
+              style={{
+                display: "inline",
+                backgroundColor: "rgba(255,255,255,0.1)",
+                borderRadius: "5px",
+                padding: " 30px 10px 2px 10px",
+                color: "white",
+              }}
+            ></div>
+            <li className="nav-item active">
+              <button onClick={handleClick} className=" py-2 px-3 border-0 mx-2">
+                <i className="far fa-user fw-bold">Log Out</i>
+              </button>
+            </li>
+          </>
+        ) : (
+          <li className="nav-item active">
+            <NavLink to="/register" className="nav-link">
+              <i className="far fa-user fw-bold">Sign up</i>
+            </NavLink>
+          </li>
+        )}
       </Nav>
     </div>
   );

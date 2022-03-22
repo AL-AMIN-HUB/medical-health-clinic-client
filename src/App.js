@@ -7,6 +7,7 @@ import Contact from "./components/pages/Contact/Contact";
 import ErrorRoute from "./components/pages/ErrorRoute/ErrorRoute";
 import ExploreServices from "./components/pages/Explore/ExploreServices";
 import Footer from "./components/pages/Footer/Footer";
+import ServiceDetails from "./components/pages/ServiceDetails/ServiceDetails";
 import Services from "./components/pages/Services/Services";
 import Login from "./components/shared/Login/Login";
 import Menubar from "./components/shared/Menubar/Menubar";
@@ -25,8 +26,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/exploreServices" element={<ExploreServices />} />
-            <Route path="/services" element={<Services />} />
             <Route path="/appointmentForm" element={<AppointmentForm />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/serviceDetails/:serviceId" element={<ServiceDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<ErrorRoute />} />

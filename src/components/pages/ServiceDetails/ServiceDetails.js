@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import "./AppointmentForm.css";
 
-const AppointmentForm = () => {
+const ServiceDetails = () => {
   const { user } = useAuth();
+  const { serviceId } = useParams();
+  const [service, setService] = useState({});
+
+  useEffect(() => {
+    const url = `http://localhost:5000/allServices/${serviceId}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setService(data);
+      });
+  }, [serviceId]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,8 +37,16 @@ const AppointmentForm = () => {
                   sapien undo pretium purus feugiat dolor impedit magna purus pretium gravida donec ligula massa gravida donec pretium
                 </p>
               </Card.Text>
+
+              <Card.Text className="text-muted mt-5">
+                <small>
+                  * Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugiat dolor lacinia cubilia curae integer congue
+                  leo metus, primis in orci integer metus mollis faucibus enim. Nemo ipsam egestas volute turpis dolores ut aliquam quaerat sodales
+                  sapien undo pretium purus
+                </small>
+              </Card.Text>
               <form onSubmit={handleSubmit} action="#">
-                <input required placeholder="Department*" className="form-control my-2 py-2 px-3" type="text" name="department" />
+                <input placeholder="Department" className="form-control my-2 py-2 px-3" type="text" name="department" defaultValue={service.name} />
 
                 <input placeholder="Appointment Date" className="form-control my-3 py-3 px-3" type="date" name="date" />
                 <input
@@ -73,18 +92,10 @@ const AppointmentForm = () => {
               <Card.Title>The Heart Of Clinic</Card.Title>
               <hr />
               <Card.Text>
-                <div className="d-flex justify-content-center align-items-center">
-                  <div>
-                    <img className="img-fluid w-75" src="https://i.ibb.co/hXbgbmf/head-of-clinic.jpg" alt="" />
-                  </div>
-                  <div className="doctor_info">
-                    <h5>Dr. Jonathan Barnes</h5>
-                    <p className="text-muted">
-                      <small>Chief Medical Officer, Founder</small>
-                    </p>
-                    <h6 className="color_custom fw-bold">1-800-1234-567</h6>
-                  </div>
+                <div>
+                  <img className="img-fluid" src="https://i.ibb.co/4Kkt1qx/image-06.png" alt="" />
                 </div>
+
                 <div className="mt-2">
                   <p className="pb-3">
                     <small>
@@ -141,4 +152,4 @@ const AppointmentForm = () => {
   );
 };
 
-export default AppointmentForm;
+export default ServiceDetails;
