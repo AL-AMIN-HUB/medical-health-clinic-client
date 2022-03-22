@@ -12,6 +12,7 @@ import ServiceDetails from "./components/pages/ServiceDetails/ServiceDetails";
 import Services from "./components/pages/Services/Services";
 import Login from "./components/shared/Login/Login";
 import Menubar from "./components/shared/Menubar/Menubar";
+import PrivateRoute from "./components/shared/PrivateRoute/PrivateRoute";
 import Register from "./components/shared/Register/Register";
 import AuthProvider from "./context/AuthProvider";
 
@@ -26,11 +27,32 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
             <Route path="/exploreServices" element={<ExploreServices />} />
-            <Route path="/appointmentForm" element={<AppointmentForm />} />
+            <Route
+              path="/appointmentForm"
+              element={
+                <PrivateRoute>
+                  <AppointmentForm />
+                </PrivateRoute>
+              }
+            />
             <Route path="/services" element={<Services />} />
-            <Route path="/serviceDetails/:serviceId" element={<ServiceDetails />} />
+            <Route
+              path="/serviceDetails/:serviceId"
+              element={
+                <PrivateRoute>
+                  <ServiceDetails />
+                </PrivateRoute>
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<ErrorRoute />} />

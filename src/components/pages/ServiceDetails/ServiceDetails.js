@@ -9,7 +9,7 @@ const ServiceDetails = () => {
   const [service, setService] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/allServices/${serviceId}`;
+    const url = `https://medical-health-clinic.herokuapp.com/allServices/${serviceId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

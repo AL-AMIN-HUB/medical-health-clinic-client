@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
+import useAuth from "../../../Hooks/useAuth";
 import SingleService from "../SingleService/SingleService";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const { isLoading, setIsLoading } = useAuth();
 
   useEffect(() => {
-    fetch("http://localhost:5000/allServices")
+    setIsLoading(true);
+    fetch("https://medical-health-clinic.herokuapp.com/allServices")
       .then((res) => res.json())
-      .then((data) => setServices(data));
-  }, []);
+      .then((data) => setServices(data))
+      .finally(() => setIsLoading(false));
+  }, [setIsLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="spinner">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    );
+  }
   return (
     <div>
       <div className="gallery_content text-center mx-auto mb-5">
