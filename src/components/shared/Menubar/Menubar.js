@@ -129,6 +129,11 @@ const Menubar = () => {
                 <i className="far fa-copy">Contact Us</i>
               </NavLink>
             </li>
+            <li className={user.email ? "nav-item, active d-block" : "d-none"}>
+              <NavLink to="/dashboard" className="nav-link">
+                <i className="far fa-copy">Dashboard</i>
+              </NavLink>
+            </li>
           </ul>
         </div>
         {user?.email ? (
