@@ -8,6 +8,7 @@ import Gallery from "../pages/Gallery/Gallery";
 import Header from "../pages/Header/Header";
 import HeadOfClinic from "../pages/HeadOfClinic/HeadOfClinic";
 import Review from "../pages/Review/Review";
+import Services from "../pages/Services/Services";
 
 const Home = () => {
   const [visible, setVisible] = useState(false);
@@ -38,6 +39,7 @@ const Home = () => {
         <ClinicTreatment />
         <Gallery />
         <DoctorBanner />
+        <Services />
         <Review />
         <AppointmentAdBanner />
       </div>

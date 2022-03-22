@@ -67,21 +67,21 @@ const Footer = () => {
               <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
                 <h5 className="text-uppercase mb-4">Opening hours</h5>
 
-                <table className="table text-center bg-info">
-                  <tbody className="font-weight-normal">
-                    <tr>
+                <table className="table text-center color_custom_bg shadow rounded-3">
+                  <tbody className="font-weight-normal text-white">
+                    <tr className="border-0">
                       <td>Mon - Thu:</td>
                       <td>8am - 9pm</td>
                     </tr>
-                    <tr>
+                    <tr className="border-0">
                       <td>Fri - Sat:</td>
                       <td>8am - 1am</td>
                     </tr>
-                    <tr>
+                    <tr className="border-0">
                       <td>Sunday:</td>
                       <td>9am - 10pm</td>
                     </tr>
-                    <tr>
+                    <tr className="border-0">
                       <td>WED - THU:</td>
                       <td>10am - 8pm</td>
                     </tr>

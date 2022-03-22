@@ -79,7 +79,7 @@ const Menubar = () => {
               </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink to="/services" className="nav-link">
+              <NavLink to="/exploreServices" className="nav-link">
                 <i className="far fa-clone">Services</i>
               </NavLink>
             </li>

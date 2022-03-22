@@ -5,6 +5,7 @@ import About from "./components/pages/About/About";
 import AppointmentForm from "./components/pages/AppointmentForm/AppointmentForm";
 import Contact from "./components/pages/Contact/Contact";
 import ErrorRoute from "./components/pages/ErrorRoute/ErrorRoute";
+import ExploreServices from "./components/pages/Explore/ExploreServices";
 import Footer from "./components/pages/Footer/Footer";
 import Services from "./components/pages/Services/Services";
 import Login from "./components/shared/Login/Login";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/exploreServices" element={<ExploreServices />} />
             <Route path="/services" element={<Services />} />
             <Route path="/appointmentForm" element={<AppointmentForm />} />
             <Route path="/login" element={<Login />} />

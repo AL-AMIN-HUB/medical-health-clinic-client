@@ -16,3 +16,7 @@
 .color_custom_bg2 {
   background-color: #ff005a;
 }
+
+i {
+  cursor: pointer;
+}

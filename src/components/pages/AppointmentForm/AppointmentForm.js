@@ -31,7 +31,7 @@ const AppointmentForm = () => {
                 <input placeholder="Enter Your Phone Number*" required className="form-control my-3 py-3 px-3" type="number" name="phone" />
                 <textarea
                   rows="5"
-                  placeholder="Tell me your problem here..."
+                  placeholder="Tell us your problem here..."
                   required
                   className="form-control my-3 py-3 px-3"
                   type="text"
