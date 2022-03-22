@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 // import useAuth from "../../Hooks/useAuth";
 
 const Dashboard = () => {
-  const { appointments, setAppointments } = useState([]);
+  const [appointments, setAppointments] = useState([]);
   // const { logOut } = useAuth();
 
   useEffect(() => {
     fetch("https://medical-health-clinic.herokuapp.com/allAppointments")
       .then((res) => res.json())
       .then((data) => setAppointments(data));
-  }, [setAppointments]);
+  }, []);
 
   useEffect(() => {
     const el = document.getElementById("wrapper");
@@ -21,6 +22,48 @@ const Dashboard = () => {
       el.classList.toggle("toggled");
     };
   }, []);
+
+  const handleDelete = (id) => {
+    fetch(`https://medical-health-clinic.herokuapp.com/allAppointments/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount === 1) {
+          const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: "btn btn-success m-2",
+              cancelButton: "btn btn-danger m-2",
+            },
+            buttonsStyling: false,
+          });
+
+          swalWithBootstrapButtons
+            .fire({
+              title: "Are you sure?",
+              text: "You won't be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Yes, Delete it!",
+              cancelButtonText: "No, cancel!",
+              reverseButtons: true,
+            })
+            .then((result) => {
+              if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire("", "Appointment Delete successful");
+                const remaining = appointments.filter((order) => order._id !== id);
+                setAppointments(remaining);
+              } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+              ) {
+                swalWithBootstrapButtons.fire("Cancelled", "Your Appointment  is safe :)", "error");
+                return;
+              }
+            });
+        }
+      });
+  };
 
   return (
     <div>
@@ -133,13 +176,13 @@ const Dashboard = () => {
                     </thead>
                     <tbody>
                       {appointments.map((appointment, index) => (
-                        <tr key={appointment._id}>
-                          <th scope="row">{index}</th>
-                          <td>{appointment.department}</td>
-                          <td>{appointment.userName}</td>
-                          <td>{appointment.email}</td>
-                          <td>{appointment.phone}</td>
-                          <td>$ {appointment.price}</td>
+                        <tr key={appointment?._id}>
+                          <th scope="row">{index + 1}</th>
+                          <td>{appointment?.department}</td>
+                          <td>{appointment?.userName}</td>
+                          <td>{appointment?.email}</td>
+                          <td>{appointment?.phone}</td>
+                          <td>$ {appointment?.price}</td>
                           <td>
                             <select>
                               <option value="pending">pending</option>
@@ -150,7 +193,7 @@ const Dashboard = () => {
                             <button className="button2 border-0 mx-2 mb-1 py-1 px-2">
                               <i className="fas fa-edit"></i>
                             </button>
-                            <button className="button2 border-0 mx-2 mb-1 py-1 px-2">
+                            <button onClick={() => handleDelete(appointment._id)} className="button2 border-0 mx-2 mb-1 py-1 px-2">
                               <i className="fas fa-trash"></i>
                             </button>
                           </td>

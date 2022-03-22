@@ -18,7 +18,7 @@ const ServiceDetails = () => {
       });
   }, [serviceId]);
 
-  const initialInfo = { userName: user.displayName, email: user.email, phone: "", desc: "", department: "" };
+  const initialInfo = { userName: user.displayName, email: user.email, phone: "", desc: "", department: "", price: "" };
   const [bookingInfo, setBookingInfo] = useState(initialInfo);
 
   // handle on blur
